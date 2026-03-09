@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorías - CBTis 258</title>
+    <style>
+        :root { --vino: #611232; }
+        body { font-family: 'Segoe UI', sans-serif; background: #F5F5F5; margin: 0; }
+        .container { padding: 40px 5%; max-width: 900px; margin: auto; }
+        .box { background: white; padding: 30px; border-radius: 15px; }
+        .grid-cat { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        input { width: 100%; padding: 12px; border: 1px solid #DDD; border-radius: 8px; margin-top: 10px; }
+        .cat-list { list-style: none; padding: 0; }
+        .cat-list li { padding: 15px; border-bottom: 1px solid #EEE; display: flex; justify-content: space-between; align-items: center; }
+        .btn-vino { padding: 12px 25px; border: 1px solid var(--vino); background: transparent; color: var(--vino); font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" style="text-decoration:none; color:#A08070">← Volver</a>
+        <div class="box">
+            <div class="grid-cat">
+                <div>
+                    <h3>Agregar Nueva Categoría</h3>
+                    <label style="font-size: 13px; font-weight: bold; color: var(--vino);">Nombre de la Categoría</label>
+                    <input type="text" placeholder="Ej. Periféricos, Redes...">
+                    <button class="btn-vino">Guardar Categoría</button>
+                </div>
+                <div>
+                    <h3>Categorías Actuales</h3>
+                    <ul class="cat-list">
+                        <li>Computo <span>(45 equipos)</span></li>
+                        <li>Mobiliario <span>(120 items)</span></li>
+                        <li>Electrónica <span>(30 items)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
