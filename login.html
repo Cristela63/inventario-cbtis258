@@ -3,36 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CBTis 258</title>
+    <title>Acceso - CBTis 258</title>
     <style>
-        :root { --bg: #FFF9F3; --accent: #FFD8B1; --primary: #FFB38E; --primary-dark: #E67E22; --text: #5D4037; }
+        :root { --vino: #611232; --bg: #F5F5F5; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center; }
-        .login-box { background: white; padding: 50px; border-radius: 40px; box-shadow: 0 20px 40px rgba(230,126,34,0.1); width: 100%; max-width: 400px; text-align: center; border: 2px solid var(--accent); }
-        h1 { color: var(--primary-dark); margin: 0; }
-        input, select { width: 100%; padding: 15px; margin: 10px 0; border-radius: 15px; border: 2px solid #F0F0F0; background: #FFFCF9; outline: none; box-sizing: border-box; }
-        .btn-login { width: 100%; padding: 18px; border: none; border-radius: 15px; background: #EEE; color: white; font-weight: bold; cursor: not-allowed; transition: 0.5s; }
-        .btn-ready { background: var(--primary-dark) !important; cursor: pointer !important; box-shadow: 0 8px 20px rgba(230,126,34,0.3); }
+        .login-card { background: white; padding: 50px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; border-top: 8px solid var(--vino); }
+        h1 { color: var(--vino); margin: 0 0 10px 0; font-size: 28px; }
+        p { color: #666; margin-bottom: 30px; }
+        .input-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; font-size: 12px; font-weight: bold; color: var(--vino); text-transform: uppercase; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 14px; border: 1px solid #DDD; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
+        .btn-vino { width: 100%; padding: 16px; background: white; color: var(--vino); border: 2px solid var(--vino); border-radius: 30px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 15px; }
+        .btn-vino:hover { background: var(--vino); color: white; }
     </style>
 </head>
 <body>
-    <div class="login-box">
+    <div class="login-card">
         <h1>CBTis 258</h1>
-        <p style="color: #A08070;">Gestión de Inventario</p>
+        <p>Sistema de Inventario y Control</p>
         <form action="index.html">
-            <select class="in" required><option value="">Rol de Usuario</option><option>Almacén</option><option>Soporte</option><option>Docente</option></select>
-            <input type="text" class="in" placeholder="Usuario" required>
-            <input type="password" class="in" placeholder="Contraseña" required>
-            <button type="submit" id="btn" class="btn-login">Entrar al Sistema</button>
+            <div class="input-group">
+                <label>Tipo de Usuario</label>
+                <select required>
+                    <option value="">Seleccione perfil...</option>
+                    <option>Administrador / Almacén</option>
+                    <option>Docente</option>
+                    <option>Alumno</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Usuario / Matrícula</label>
+                <input type="text" placeholder="Ingrese su identificador" required>
+            </div>
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-vino">INICIAR SESIÓN</button>
         </form>
     </div>
-    <script>
-        const ins = document.querySelectorAll('.in');
-        const btn = document.getElementById('btn');
-        const check = () => {
-            let full = true; ins.forEach(i => { if(!i.value) full = false; });
-            full ? btn.classList.add('btn-ready') : btn.classList.remove('btn-ready');
-        };
-        ins.forEach(i => i.addEventListener('input', check));
-    </script>
 </body>
 </html>

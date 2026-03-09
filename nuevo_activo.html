@@ -1,126 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Agregar Equipo - CBTis 258</title>
-
-<style>
-
-body{
-font-family:'Segoe UI', sans-serif;
-background:#FFF9F3;
-padding:40px;
-margin:0;
-}
-
-.box{
-max-width:900px;
-margin:auto;
-background:white;
-padding:40px;
-border-radius:30px;
-}
-
-h2{
-color:#5D8AA8;
-margin-bottom:20px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:25px;
-align-items:start;
-}
-
-label{
-display:block;
-margin-bottom:5px;
-font-size:14px;
-}
-
-input{
-width:100%;
-padding:6px;
-border:1px solid #ccc;
-border-radius:4px;
-}
-
-select{
-width:100%;
-}
-
-select[size]{
-height:120px;
-}
-
-.btn{
-grid-column:span 2;
-padding:20px;
-background:#AEC6CF;
-border:none;
-color:white;
-font-weight:bold;
-border-radius:15px;
-cursor:pointer;
-font-size:16px;
-margin-top:10px;
-}
-
-.btn:hover{
-background:#5D8AA8;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <title>Registro de Nuevo Activo - CBTis 258</title>
+    <style>
+        :root { --vino: #611232; }
+        body { font-family: 'Segoe UI', sans-serif; background: #F5F5F5; padding: 40px; margin: 0; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 15px; }
+        .back-link { text-decoration: none; color: #A08070; font-weight: bold; margin-bottom: 20px; display: inline-block; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        label { font-weight: bold; color: var(--vino); font-size: 13px; display: block; margin-bottom: 8px; }
+        select[size] { width: 100%; height: 120px; border: 1px solid #CCC; border-radius: 8px; padding: 10px; background: #FDF2F5; }
+        input, select:not([size]) { width: 100%; padding: 12px; border: 1px solid #CCC; border-radius: 8px; box-sizing: border-box; }
+        .btn-container { grid-column: span 2; text-align: center; margin-top: 40px; }
+        .btn-save { padding: 15px 60px; border: 1px solid var(--vino); background: transparent; color: var(--vino); font-weight: bold; border-radius: 12px; cursor: pointer; text-transform: uppercase; }
+        .btn-save:hover { background: #E2F0CB; border-color: #C5D8A3; }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <a href="index.html" class="back-link">← Regresar</a>
+            <span style="font-size:12px;">Responsable de registro: <b>Almacen</b></span>
+        </div>
+        <h2 style="text-align:center; color:var(--vino); border-bottom:1px solid #EEE; padding-bottom:15px;">Sistema de Inventario - Registro de Nuevo Activo</h2>
 
-<div class="box">
+        <form class="grid">
+            <div>
+                <label>Tipo de equipo:</label>
+                <select size="5">
+                    <option>PC</option>
+                    <option>Monitor</option>
+                    <option>Mouse</option>
+                    <option>Teclado</option>
+                    <option>Otro</option>
+                </select>
+            </div>
+            <div>
+                <label>Ubicación:</label>
+                <select size="5">
+                    <option>Laboratorio 1</option>
+                    <option>Laboratorio 2</option>
+                    <option>Laboratorio 3</option>
+                </select>
+            </div>
+            <div><label>Marca:</label><input type="text" placeholder="Ej: HP"></div>
+            <div>
+                <label>Estado:</label>
+                <select>
+                    <option>Funcional</option>
+                    <option>Mantenimiento</option>
+                    <option>Falla</option>
+                    <option>Extravío</option>
+                </select>
+            </div>
+            <div><label>Fecha de Registro:</label><input type="date"></div>
+            <div><label>Número de Serie:</label><input type="text"></div>
 
-<a href="index.html" style="color:#A08070;text-decoration:none">← Volver</a>
-
-<h2>Agregar Nuevo Equipo</h2>
-
-<form class="grid">
-
-<div>
-<label>Tipo de Equipo</label>
-<select size="4">
-<option>PC</option>
-<option>Monitor</option>
-<option>Teclado</option>
-<option>Mouse</option>
-</select>
-</div>
-
-<div>
-<label>Ubicación</label>
-<select size="4">
-<option>Lab 1</option>
-<option>Lab 2</option>
-<option>Lab 3</option>
-</select>
-</div>
-
-<div>
-<label>Marca</label>
-<input type="text">
-</div>
-
-<div>
-<label>N. Serie</label>
-<input type="text">
-</div>
-
-<button class="btn" type="button" onclick="location.href='index.html'">
-💾 GUARDAR ACTIVO
-</button>
-
-</form>
-
-</div>
-
+            <div class="btn-container">
+                <button type="button" class="btn-save" onclick="location.href='index.html'">💾 Guardar</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

@@ -2,36 +2,76 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Detalle - CBTis 258</title>
+    <title>Detalle del Equipo - CBTis 258</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #FFF9F3; padding: 40px; margin: 0; }
-        .box { max-width: 1000px; margin: auto; background: white; padding: 40px; border-radius: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .info-panel { border-right: 2px solid #F0F0F0; padding-right: 20px; }
-        .data-row { margin-bottom: 15px; border-bottom: 1px solid #EEE; padding-bottom: 5px; }
-        .label { font-size: 12px; color: #A08070; font-weight: bold; }
-        table { width: 100%; font-size: 13px; }
-        th { background: #FDF5F0; padding: 10px; text-align: left; }
+        :root { --vino: #611232; }
+        body { font-family: 'Segoe UI', sans-serif; background: #F5F5F5; padding: 40px; margin: 0; }
+        .container { max-width: 1100px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); }
+        .back-link { text-decoration: none; color: #A08070; font-weight: bold; margin-bottom: 20px; display: inline-block; }
+        .header { display: flex; justify-content: space-between; border-bottom: 1px solid #EEE; padding-bottom: 10px; margin-bottom: 30px; }
+        
+        .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 40px; }
+        .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #F9F9F9; padding: 8px 0; }
+        .label { font-weight: bold; color: var(--vino); font-size: 14px; }
+        
+        .btn-group { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
+        .btn { padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-outline { background: white; border: 1px solid var(--vino); color: var(--vino); }
+        .btn-outline:hover { background: #E2F0CB; border-color: #C5D8A3; }
+
+        .history-section { margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background: #FDF2F5; padding: 12px; text-align: left; color: var(--vino); }
+        td { padding: 12px; border-bottom: 1px solid #EEE; }
+        .delete-box { margin-top: 20px; text-align: center; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="info-panel">
-            <a href="index.html" style="text-decoration:none; color:#A08070">← Volver</a>
-            <h2 style="color:#E2F0CB; background:#5D4037; display:inline-block; padding:5px 15px; border-radius:10px;">Equipo #143</h2>
-            <div class="data-row"><div class="label">TIPO</div>Monitor HP</div>
-            <div class="data-row"><div class="label">ESTADO</div><span style="color:red">En Falla</span></div>
-            <div class="data-row"><div class="label">UBICACIÓN</div>Laboratorio 3</div>
-            <div class="data-row"><div class="label">FECHA REGISTRO</div>09/02/2026</div>
+    <div class="container">
+        <a href="index.html" class="back-link">← Regresar</a>
+        <div class="header">
+            <h2 style="margin:0; color:var(--vino);">Sistema de Inventario - Detalle del Equipo</h2>
+            <span style="font-size:12px;">Usuario: <b>Almacen</b></span>
         </div>
-        <div>
-            <h3>Historial de Fallas</h3>
+
+        <h3 style="text-align:center;">Información del Equipo</h3>
+        <div class="info-grid">
+            <div>
+                <div class="data-row"><span class="label">Tipo de equipo:</span> <span>PC</span></div>
+                <div class="data-row"><span class="label">Marca/Modelo:</span> <span>HP L19</span></div>
+                <div class="data-row"><span class="label">Estado:</span> <span style="color:red; font-weight:bold;">Falla</span></div>
+                <div class="data-row"><span class="label">Número de serie:</span> <span>143</span></div>
+                <div class="data-row"><span class="label">Fecha de registro:</span> <span>05/02/2026</span></div>
+            </div>
+            <div>
+                <div class="data-row"><span class="label">Responsable del registro:</span> <span>Soporte</span></div>
+                <div class="data-row"><span class="label">Laboratorio:</span> <span>3</span></div>
+                <div class="data-row" style="flex-direction:column; border:none;">
+                    <span class="label">Notas/Observaciones:</span>
+                    <p style="font-size:13px; background:#F9F9F9; padding:10px; border-radius:5px;">Falla, se apaga solo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-outline" onclick="location.href='registro_falla.html'">Registrar folio</button>
+            <button class="btn btn-outline">Actualizar información</button>
+        </div>
+
+        <div class="history-section">
+            <h4>Historial:</h4>
             <table>
-                <thead><tr><th>Folio</th><th>Fecha</th><th>Estado</th></tr></thead>
+                <thead>
+                    <tr><th>ID</th><th>Tipo de equipo</th><th>Marca/Modelo</th><th>Serie</th><th>Ubicación</th><th>Estado</th><th>Último Mantenimiento</th></tr>
+                </thead>
                 <tbody>
-                    <tr><td>#001</td><td>10/02/26</td><td>Pendiente</td></tr>
-                    <tr><td>#024</td><td>15/12/25</td><td>Reparado</td></tr>
+                    <tr><td>1</td><td>PC</td><td>HP</td><td>143</td><td>Lab 3</td><td>Falla</td><td>10/01/2026</td></tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class="delete-box">
+            <button style="color:red; border:1px solid red; background:white; padding:8px 20px; border-radius:5px; cursor:pointer;">Eliminar equipo</button>
         </div>
     </div>
 </body>
