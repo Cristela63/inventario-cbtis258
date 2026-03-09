@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorías - CBTis 258</title>
+    <style>
+        :root { --vino: #611232; --ocre: #A08070; }
+        body { font-family: 'Segoe UI', sans-serif; background: #F5F5F5; padding: 40px; }
+        .box { max-width: 700px; margin: auto; background: white; padding: 40px; border-radius: 15px; }
+        .back { text-decoration: none; color: var(--ocre); }
+        .btn-save { border: 1px solid var(--vino); background: transparent; color: var(--vino); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-save:hover { background: #E2F0CB; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" class="back">← REGRESAR</a>
+        <h2 style="color:var(--vino)">Gestión de Categorías</h2>
+        <div style="margin: 20px 0;">
+            <label>Nueva Categoría:</label>
+            <input type="text" placeholder="Ej. Laptops, Redes, Proyectores" style="width:100%; padding:12px; margin: 10px 0; border-radius:8px; border:1px solid #DDD;">
+            <button class="btn-save">AGREGAR CATEGORÍA</button>
+        </div>
+        <hr>
+        <h3>Listado de Categorías</h3>
+        <ul>
+            <li>Cómputo (PC, Laptops)</li>
+            <li>Periféricos (Mouse, Teclado)</li>
+            <li>Mobiliario (Sillas, Mesas)</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios - CBTis 258</title>
+    <style>
+        :root { --vino: #611232; --ocre: #A08070; --bg: #F8F9FA; --vino-light: #FDF2F5; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; color: #333; }
+
+        /* Navegación Uniforme */
+        .navbar { background: var(--vino); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; color: white; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 14px; font-weight: bold; }
+        
+        .container { padding: 20px 5% 40px; max-width: 1400px; margin: auto; display: grid; grid-template-columns: 350px 1fr; gap: 30px; }
+
+        /* --- ESTILO DEL BOTÓN VOLVER --- */
+        .back-container { padding: 20px 5% 0; max-width: 1400px; margin: auto; }
+        .back-link { 
+            text-decoration: none; 
+            color: var(--ocre); 
+            font-weight: bold; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 14px; 
+            transition: 0.3s;
+        }
+        .back-link:hover { color: var(--vino); transform: translateX(-5px); }
+        .back-icon { font-size: 20px; }
+        /* ------------------------------- */
+
+        .user-form-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); height: fit-content; border-top: 5px solid var(--vino); }
+        .user-form-card h3 { color: var(--vino); margin-top: 0; font-size: 18px; border-bottom: 1px solid #EEE; padding-bottom: 10px; }
+        
+        .input-group { margin-bottom: 15px; }
+        label { display: block; font-size: 12px; font-weight: bold; color: var(--vino); margin-bottom: 5px; text-transform: uppercase; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #DDD; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
+        
+        .btn-register { width: 100%; padding: 12px; background: var(--vino); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        .btn-register:hover { background: var(--ocre); }
+
+        .user-list-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .user-list-card h2 { color: var(--vino); margin-top: 0; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; padding: 15px; background: var(--vino-light); color: var(--vino); border-bottom: 2px solid var(--vino); font-size: 13px; }
+        td { padding: 15px; border-bottom: 1px solid #F0F0F0; font-size: 14px; }
+        tr:hover { background: #FCFAFB; }
+
+        .actions { display: flex; gap: 8px; }
+        .btn-edit { background: #E2F0CB; color: #5D4037; border: 1px solid #C5D8A3; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        .btn-delete { background: #FFEBEE; color: #C62828; border: 1px solid #EF9A9A; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold; }
+
+        .role-badge { padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: bold; }
+        .admin { background: #E1F5FE; color: #0288D1; }
+        .docente { background: #F3E5F5; color: #7B1FA2; }
+        .alumno { background: #E8F5E9; color: #388E3C; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div style="font-weight: bold; letter-spacing: 1px;">SISTEMA CBTis 258</div>
+        <div class="nav-links">
+            <a href="index.html">INICIO</a>
+            <a href="inventario.html">INVENTARIO</a>
+            <a href="usuarios.html" style="color: var(--ocre);">USUARIOS</a>
+            <a href="reporte.html">REPORTES</a>
+            <a href="categorias.html">CATEGORÍAS</a>
+        </div>
+    </nav>
+
+    <div class="back-container">
+        <a href="index.html" class="back-link">
+            <span class="back-icon">&#10229;</span> VOLVER AL PANEL PRINCIPAL
+        </a>
+    </div>
+
+    <div class="container">
+        
+        <div class="user-form-card">
+            <h3>Registrar Usuario</h3>
+            <form id="userForm">
+                <div class="input-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="input-group">
+                    <label>ID / Matrícula</label>
+                    <input type="text" placeholder="21300..." required>
+                </div>
+                <div class="input-group">
+                    <label>Rol de Acceso</label>
+                    <select required>
+                        <option value="alumno">Alumno</option>
+                        <option value="docente">Docente</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="usuario@cbtis258.edu.mx" required>
+                </div>
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="button" class="btn-register" onclick="confirmarRegistro()">GUARDAR USUARIO</button>
+            </form>
+        </div>
+
+        <div class="user-list-card">
+            <h2>Gestión de Usuarios</h2>
+            <p style="color: #666; font-size: 14px;">Visualiza, edita o elimina los accesos al sistema.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Rol</th>
+                        <th>Correo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>213001</td>
+                        <td>Carlos Rodríguez</td>
+                        <td><span class="role-badge alumno">ALUMNO</span></td>
+                        <td>c.rodriguez@cbtis258.edu.mx</td>
+                        <td class="actions">
+                            <button class="btn-edit" onclick="alert('Cargar datos para editar...')">Editar</button>
+                            <button class="btn-delete" onclick="confirm('¿Eliminar acceso a este usuario?')">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1040</td>
+                        <td>Ing. Marta Sánchez</td>
+                        <td><span class="role-badge docente">DOCENTE</span></td>
+                        <td>m.sanchez@cbtis258.edu.mx</td>
+                        <td class="actions">
+                            <button class="btn-edit">Editar</button>
+                            <button class="btn-delete">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ADMIN-01</td>
+                        <td>Almacén General</td>
+                        <td><span class="role-badge admin">ADMIN</span></td>
+                        <td>almacen@cbtis258.edu.mx</td>
+                        <td class="actions">
+                            <button class="btn-edit">Editar</button>
+                            <button class="btn-delete">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function confirmarRegistro() {
+            alert("✅ Usuario registrado exitosamente.\n\nEl nuevo usuario ya puede iniciar sesión con sus credenciales.");
+            document.getElementById('userForm').reset();
+        }
+    </script>
+</body>
+</html>

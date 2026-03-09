@@ -4,75 +4,96 @@
     <meta charset="UTF-8">
     <title>Detalle del Equipo - CBTis 258</title>
     <style>
-        :root { --vino: #611232; }
+        :root { --vino: #611232; --ocre: #A08070; }
         body { font-family: 'Segoe UI', sans-serif; background: #F5F5F5; padding: 40px; margin: 0; }
         .container { max-width: 1100px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); }
-        .back-link { text-decoration: none; color: #A08070; font-weight: bold; margin-bottom: 20px; display: inline-block; }
+        .back-link { text-decoration: none; color: var(--ocre); font-weight: bold; margin-bottom: 20px; display: inline-block; }
         .header { display: flex; justify-content: space-between; border-bottom: 1px solid #EEE; padding-bottom: 10px; margin-bottom: 30px; }
         
         .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 40px; }
-        .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #F9F9F9; padding: 8px 0; }
+        .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #F9F9F9; padding: 8px 0; align-items: center; }
         .label { font-weight: bold; color: var(--vino); font-size: 14px; }
         
-        .btn-group { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
-        .btn { padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-outline { background: white; border: 1px solid var(--vino); color: var(--vino); }
-        .btn-outline:hover { background: #E2F0CB; border-color: #C5D8A3; }
+        /* Inputs para edición */
+        .editable-field { border: 1px solid #DDD; padding: 5px; border-radius: 4px; width: 60%; font-family: inherit; }
 
-        .history-section { margin-top: 30px; }
-        table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        th { background: #FDF2F5; padding: 12px; text-align: left; color: var(--vino); }
+        .btn-group { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
+        .btn { padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; border: 1px solid var(--vino); }
+        
+        /* Estilo Detalle/Limpios solicitado */
+        .btn-update { background: white; color: var(--vino); }
+        .btn-update:hover { background: #E2F0CB; border-color: #C5D8A3; color: #5D4037; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+        th { background: #FDF2F5; padding: 12px; text-align: left; color: var(--vino); border-bottom: 2px solid var(--vino); }
         td { padding: 12px; border-bottom: 1px solid #EEE; }
-        .delete-box { margin-top: 20px; text-align: center; }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Regresar</a>
+        <a href="inventario.html" class="back-link">← Regresar al Inventario</a>
         <div class="header">
-            <h2 style="margin:0; color:var(--vino);">Sistema de Inventario - Detalle del Equipo</h2>
+            <h2 style="margin:0; color:var(--vino);">Información Detallada del Activo</h2>
             <span style="font-size:12px;">Usuario: <b>Almacen</b></span>
         </div>
 
-        <h3 style="text-align:center;">Información del Equipo</h3>
-        <div class="info-grid">
-            <div>
-                <div class="data-row"><span class="label">Tipo de equipo:</span> <span>PC</span></div>
-                <div class="data-row"><span class="label">Marca/Modelo:</span> <span>HP L19</span></div>
-                <div class="data-row"><span class="label">Estado:</span> <span style="color:red; font-weight:bold;">Falla</span></div>
-                <div class="data-row"><span class="label">Número de serie:</span> <span>143</span></div>
-                <div class="data-row"><span class="label">Fecha de registro:</span> <span>05/02/2026</span></div>
-            </div>
-            <div>
-                <div class="data-row"><span class="label">Responsable del registro:</span> <span>Soporte</span></div>
-                <div class="data-row"><span class="label">Laboratorio:</span> <span>3</span></div>
-                <div class="data-row" style="flex-direction:column; border:none;">
-                    <span class="label">Notas/Observaciones:</span>
-                    <p style="font-size:13px; background:#F9F9F9; padding:10px; border-radius:5px;">Falla, se apaga solo.</p>
+        <form id="updateForm">
+            <div class="info-grid">
+                <div>
+                    <div class="data-row"><span class="label">Tipo de equipo:</span> <input type="text" class="editable-field" value="Monitor"></div>
+                    <div class="data-row"><span class="label">Marca/Modelo:</span> <input type="text" class="editable-field" value="HP L19"></div>
+                    <div class="data-row"><span class="label">Estado:</span> 
+                        <select class="editable-field">
+                            <option selected>Falla</option>
+                            <option>Funcional</option>
+                            <option>Mantenimiento</option>
+                        </select>
+                    </div>
+                    <div class="data-row"><span class="label">Número de serie:</span> <input type="text" class="editable-field" value="143-AB"></div>
+                </div>
+                <div>
+                    <div class="data-row"><span class="label">Ubicación:</span> 
+                        <select class="editable-field">
+                            <option>Laboratorio 1</option>
+                            <option>Laboratorio 2</option>
+                            <option selected>Laboratorio 3</option>
+                        </select>
+                    </div>
+                    <div class="data-row" style="flex-direction:column; border:none; align-items: flex-start;">
+                        <span class="label">Notas/Observaciones:</span>
+                        <textarea class="editable-field" style="width:100%; margin-top:10px;" rows="3">El equipo presenta parpadeo en la pantalla.</textarea>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="btn-group">
-            <button class="btn btn-outline" onclick="location.href='registro_falla.html'">Registrar folio</button>
-            <button class="btn btn-outline">Actualizar información</button>
-        </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-update" onclick="actualizarInfo()">💾 ACTUALIZAR INFORMACIÓN</button>
+                <button type="button" class="btn btn-update" onclick="location.href='registro_falla.html'">📋 REGISTRAR FALLA</button>
+            </div>
+        </form>
 
         <div class="history-section">
-            <h4>Historial:</h4>
+            <h3 style="color: var(--vino); font-size: 16px;">Historial de Movimientos:</h3>
             <table>
                 <thead>
-                    <tr><th>ID</th><th>Tipo de equipo</th><th>Marca/Modelo</th><th>Serie</th><th>Ubicación</th><th>Estado</th><th>Último Mantenimiento</th></tr>
+                    <tr><th>Fecha</th><th>Movimiento</th><th>Responsable</th><th>Estado Resultante</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>PC</td><td>HP</td><td>143</td><td>Lab 3</td><td>Falla</td><td>10/01/2026</td></tr>
+                    <tr><td>10/01/2026</td><td>Mantenimiento Preventivo</td><td>Soporte Técnico</td><td>Funcional</td></tr>
+                    <tr><td>05/02/2026</td><td>Reporte de Falla</td><td>Docente Juan R.</td><td>Falla</td></tr>
                 </tbody>
             </table>
         </div>
-
-        <div class="delete-box">
-            <button style="color:red; border:1px solid red; background:white; padding:8px 20px; border-radius:5px; cursor:pointer;">Eliminar equipo</button>
-        </div>
     </div>
+
+    <script>
+        function actualizarInfo() {
+            // Simulación de guardado para la exposición
+            alert("✅ ¡Éxito!\n\nLa información del equipo ha sido actualizada correctamente en la base de datos.");
+            
+            // Redirigir al inventario para mostrar el flujo completo
+            window.location.href = "inventario.html";
+        }
+    </script>
 </body>
 </html>

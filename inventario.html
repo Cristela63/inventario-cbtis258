@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Inventario - CBTis 258</title>
+    <style>
+        :root { --vino: #611232; --ocre: #A08070; --verde: #2E7D32; --rojo: #C62828; }
+        body { font-family: 'Segoe UI', sans-serif; background: #F5F5F5; margin: 0; }
+        
+        .navbar { background: var(--vino); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; color: white; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 14px; font-weight: bold; }
+        
+        .container { padding: 40px 5%; max-width: 1300px; margin: auto; }
+        .back-link { text-decoration: none; color: var(--ocre); font-weight: bold; margin-bottom: 20px; display: inline-block; }
+
+        .header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .btn-new { background: var(--vino); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-new:hover { background: var(--ocre); }
+
+        .inventory-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; padding: 15px; background: #FDF2F5; color: var(--vino); border-bottom: 3px solid var(--vino); font-size: 13px; }
+        td { padding: 15px; border-bottom: 1px solid #EEE; font-size: 14px; }
+        
+        /* Botones solicitados: Editar y Eliminar */
+        .btn-edit { background: #E8F5E9; color: var(--verde); border: 1px solid var(--verde); padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; margin-right: 5px; font-size: 12px; }
+        .btn-edit:hover { background: var(--verde); color: white; }
+        
+        .btn-delete { background: #FFEBEE; color: var(--rojo); border: 1px solid var(--rojo); padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px; }
+        .btn-delete:hover { background: var(--rojo); color: white; }
+
+        .status { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; }
+        .status-ok { background: #E8F5E9; color: var(--verde); }
+        .status-error { background: #FFEBEE; color: var(--rojo); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div style="font-weight: bold;">CBTis 258 - INVENTARIO</div>
+        <div class="nav-links">
+            <a href="index.html">INICIO</a>
+            <a href="inventario.html">INVENTARIO</a>
+            <a href="usuarios.html">USUARIOS</a>
+            <a href="reporte.html">REPORTES</a>
+            <a href="categorias.html">CATEGORÍAS</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Volver al Panel</a>
+        
+        <div class="header-actions">
+            <h2 style="color: var(--vino); margin: 0;">Gestión de Activos (Equipos)</h2>
+            <a href="nuevo_activo.html" class="btn-new">+ REGISTRAR EQUIPO</a>
+        </div>
+
+        <div class="inventory-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo</th>
+                        <th>Marca / Modelo</th>
+                        <th>Serie</th>
+                        <th>Ubicación</th>
+                        <th>Estado</th>
+                        <th>Acciones (Site Map)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Monitor</td>
+                        <td>HP L19</td>
+                        <td>143-AB</td>
+                        <td>Laboratorio 3</td>
+                        <td><span class="status status-error">Falla</span></td>
+                        <td>
+                            <a href="detalle.html" class="btn-edit">EDITAR</a>
+                            <button class="btn-delete" onclick="confirmarEliminacion('001')">ELIMINAR</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>PC Escritorio</td>
+                        <td>DELL Optiplex</td>
+                        <td>110-XY</td>
+                        <td>Laboratorio 1</td>
+                        <td><span class="status status-ok">Funcional</span></td>
+                        <td>
+                            <a href="detalle.html" class="btn-edit">EDITAR</a>
+                            <button class="btn-delete" onclick="confirmarEliminacion('002')">ELIMINAR</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function confirmarEliminacion(id) {
+            if (confirm("¿Está seguro que desea ELIMINAR el equipo con ID: " + id + "?\nEsta acción no se puede deshacer.")) {
+                alert("Equipo " + id + " eliminado correctamente (Simulación).");
+            }
+        }
+    </script>
+</body>
+</html>
