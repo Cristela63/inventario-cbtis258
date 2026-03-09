@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CBTis 258</title>
+    <style>
+        :root {
+            --bg: #FDFCF5;
+            --primary-light: #AEC6CF; /* Azul pastel inicial */
+            --primary-dark: #5D8AA8;  /* Azul más oscuro para cuando esté lleno */
+            --secondary: #FFD1DC;
+            --text: #5A5A5A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 360px;
+            background: var(--white);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid #EEE;
+        }
+
+        .icon-header {
+            font-size: 50px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h2 { margin: 0; color: var(--text); font-size: 22px; }
+        p { color: #AAA; font-size: 13px; margin-bottom: 30px; }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #DDD;
+            background: #FAFAFA;
+            font-size: 14px;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-light);
+            background: #FFF;
+        }
+
+        /* Botón dinámico */
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-light); /* Color inicial */
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Clase que se activará con JS */
+        .btn-active {
+            background-color: var(--primary-dark) !important;
+            box-shadow: 0 6px 15px rgba(93, 138, 168, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-login:hover {
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #CCC;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <span class="icon-header">🏫</span>
+        <h2>CBTis 258</h2>
+        <p>Control de Inventario</p>
+
+        <form id="loginForm" action="index.html">
+            <div class="form-group">
+                <label>Cargo / Rol</label>
+                <select id="role" class="input-field" required>
+                    <option value="" disabled selected>Selecciona tu rol</option>
+                    <option value="docente">Docente</option>
+                    <option value="almacen">Almacén</option>
+                    <option value="soporte">Soporte</option>
+                    <option value="lab">Encargado de Lab</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" id="user" class="input-field" placeholder="Nombre de usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="pass" class="input-field" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn-login">Entrar al Sistema</button>
+        </form>
+
+        <div class="footer-note">
+            © 2026 Sistema de Gestión Interna
+        </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.input-field');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function checkInputs() {
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (input.value.trim() === "") {
+                    allFilled = false;
+                }
+            });
+
+            if (allFilled) {
+                submitBtn.classList.add('btn-active');
+            } else {
+                submitBtn.classList.remove('btn-active');
+            }
+        }
+
+        // Escuchar cambios en cada campo
+        inputs.forEach(input => {
+            input.addEventListener('input', checkInputs);
+            input.addEventListener('change', checkInputs);
+        });
+    </script>
+</body>
+</html>
