@@ -1,28 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Agregar Equipo - CBTis 258</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #FFF9F3; padding: 40px; margin: 0; }
-        .box { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 30px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        select[size] { height: 120px; }
-        .btn { grid-column: span 2; padding: 20px; background: #AEC6CF; border: none; color: white; font-weight: bold; border-radius: 15px; cursor: pointer; }
-        .btn:hover { background: #5D8AA8; }
-    </style>
+<meta charset="UTF-8">
+<title>Agregar Equipo - CBTis 258</title>
+
+<style>
+
+body{
+font-family:'Segoe UI', sans-serif;
+background:#FFF9F3;
+padding:40px;
+margin:0;
+}
+
+.box{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:30px;
+}
+
+h2{
+color:#5D8AA8;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+align-items:start;
+}
+
+label{
+display:block;
+margin-bottom:5px;
+font-size:14px;
+}
+
+input{
+width:100%;
+padding:6px;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+select{
+width:100%;
+}
+
+select[size]{
+height:120px;
+}
+
+.btn{
+grid-column:span 2;
+padding:20px;
+background:#AEC6CF;
+border:none;
+color:white;
+font-weight:bold;
+border-radius:15px;
+cursor:pointer;
+font-size:16px;
+margin-top:10px;
+}
+
+.btn:hover{
+background:#5D8AA8;
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="box">
-        <a href="index.html" style="color:#A08070; text-decoration:none">← Volver</a>
-        <h2 style="color:#5D8AA8">Agregar Nuevo Equipo</h2>
-        <form class="grid">
-            <div><label>Tipo de Equipo</label><select size="4"><option>PC</option><option>Monitor</option><option>Teclado</option></select></div>
-            <div><label>Ubicación</label><select size="4"><option>Lab 1</option><option>Lab 2</option><option>Lab 3</option></select></div>
-            <div><label>Marca</label><input type="text"></div>
-            <div><label>N. Serie</label><input type="text"></div>
-            <button class="btn" type="button" onclick="location.href='index.html'">💾 GUARDAR ACTIVO</button>
-        </form>
-    </div>
+
+<div class="box">
+
+<a href="index.html" style="color:#A08070;text-decoration:none">← Volver</a>
+
+<h2>Agregar Nuevo Equipo</h2>
+
+<form class="grid">
+
+<div>
+<label>Tipo de Equipo</label>
+<select size="4">
+<option>PC</option>
+<option>Monitor</option>
+<option>Teclado</option>
+<option>Mouse</option>
+</select>
+</div>
+
+<div>
+<label>Ubicación</label>
+<select size="4">
+<option>Lab 1</option>
+<option>Lab 2</option>
+<option>Lab 3</option>
+</select>
+</div>
+
+<div>
+<label>Marca</label>
+<input type="text">
+</div>
+
+<div>
+<label>N. Serie</label>
+<input type="text">
+</div>
+
+<button class="btn" type="button" onclick="location.href='index.html'">
+💾 GUARDAR ACTIVO
+</button>
+
+</form>
+
+</div>
+
 </body>
 </html>
