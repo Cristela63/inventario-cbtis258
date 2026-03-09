@@ -1,75 +1,160 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Registro de Fallas - CBTis 258</title>
-    <style>
-        :root { --vino: #611232; }
-        body { font-family: 'Segoe UI', sans-serif; background: #F5F5F5; padding: 40px; margin: 0; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 15px; }
-        .back-link { text-decoration: none; color: #A08070; font-weight: bold; margin-bottom: 20px; display: inline-block; }
-        .header { display: flex; justify-content: space-between; margin-bottom: 30px; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        label { display: block; font-weight: bold; color: var(--vino); font-size: 13px; margin-bottom: 5px; }
-        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #DDD; border-radius: 8px; box-sizing: border-box; }
-        select[size] { height: 100px; background: #FFF9FA; }
-        .btn-row { display: flex; justify-content: space-between; margin-top: 30px; padding-top: 20px; border-top: 1px solid #EEE; }
-        .btn { padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; border: 1px solid var(--vino); }
-        .btn-white { background: white; color: var(--vino); }
-        .btn-white:hover { background: #E2F0CB; }
-    </style>
+<meta charset="UTF-8">
+<title>Registrar Folio - CBTis 258</title>
+
+<style>
+
+body{
+font-family:'Segoe UI', sans-serif;
+background:#FFF9F3;
+padding:40px;
+margin:0;
+}
+
+.box{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.full{
+grid-column:span 2;
+}
+
+label{
+font-weight:bold;
+color:#8D6E63;
+font-size:14px;
+}
+
+input, select, textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:2px solid #F0F0F0;
+box-sizing:border-box;
+margin-top:5px;
+}
+
+.btn{
+width:100%;
+padding:20px;
+background:#FFB38E;
+border:none;
+color:white;
+font-weight:bold;
+border-radius:15px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.btn:hover{
+background:#E67E22;
+}
+
+.btn-borrar{
+background:#D7CCC8;
+color:#5D4037;
+}
+
+.btn-borrar:hover{
+background:#BCAAA4;
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Regresar</a>
-        <div class="header">
-            <h2 style="margin:0; color:var(--vino);">Sistema de Inventario - Registro de Fallas</h2>
-            <span>Usuario: <b>Almacen</b></span>
-        </div>
 
-        <form class="form-grid">
-            <div><label>Reportado por:</label><input type="text"></div>
-            <div><label>Número de serie:</label><input type="text"></div>
-            
-            <div><label>Motivo:</label><textarea rows="4"></textarea></div>
-            <div>
-                <label>¿En qué laboratorio está?</label>
-                <select size="3">
-                    <option>Laboratorio 1</option>
-                    <option>Laboratorio 2</option>
-                    <option>Laboratorio 3</option>
-                </select>
-            </div>
+<div class="box">
 
-            <div><label>Tipo de equipo:</label><input type="text"></div>
-            <div><label>Fecha:</label><input type="date"></div>
+<a href="index.html" style="color:#A08070;text-decoration:none">← Volver</a>
 
-            <div style="grid-column: span 2;"><label>Descripción:</label><textarea rows="2" placeholder="Se apaga solo..."></textarea></div>
+<h2 style="color:#E67E22">Registrar Falla (Folio)</h2>
 
-            <div>
-                <label>Estado:</label>
-                <select size="4">
-                    <option>Mantenimiento</option>
-                    <option>Falla</option>
-                    <option>Funcional</option>
-                    <option>Extravío</option>
-                </select>
-            </div>
-            <div>
-                <label>Nivel de urgencia:</label>
-                <select size="4">
-                    <option>Ninguna</option>
-                    <option>Baja</option>
-                    <option>Moderada</option>
-                    <option>Alta</option>
-                </select>
-            </div>
+<form class="grid" id="formFalla">
 
-            <div class="btn-row">
-                <button type="button" class="btn btn-white">Guardar reporte</button>
-                <button type="button" class="btn btn-white">Guardar</button>
-            </div>
-        </form>
-    </div>
+<div>
+<label>Reportado por</label>
+<input type="text">
+</div>
+
+<div>
+<label>N. Serie</label>
+<input type="text">
+</div>
+
+<div>
+<label>Motivo</label>
+<input type="text">
+</div>
+
+<div>
+<label>Laboratorio</label>
+<select>
+<option>Lab 1</option>
+<option>Lab 2</option>
+<option>Lab 3</option>
+</select>
+</div>
+
+<div>
+<label>Fecha</label>
+<input type="date">
+</div>
+
+<div>
+<label>Urgencia</label>
+<select>
+<option>Baja</option>
+<option>Media</option>
+<option>Alta</option>
+</select>
+</div>
+
+<div class="full">
+<label>Descripción de la falla</label>
+<textarea rows="3"></textarea>
+</div>
+
+<div>
+<label>Estado</label>
+<select>
+<option>Falla</option>
+<option>Mantenimiento</option>
+<option>Extravío</option>
+</select>
+</div>
+
+<div></div>
+
+<div class="full">
+
+<button class="btn" type="button" onclick="location.href='index.html'">
+GUARDAR REPORTE
+</button>
+
+<button class="btn btn-borrar" type="reset">
+BORRAR DATOS
+</button>
+
+</div>
+
+</form>
+
+</div>
+
 </body>
 </html>
