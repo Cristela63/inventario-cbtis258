@@ -2,198 +2,32 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Folio - CBTis 258</title>
     <style>
-        :root {
-            --bg: #FDFCF5;
-            --primary: #AEC6CF; /* Azul pastel */
-            --secondary: #FFD1DC; /* Rosa pastel */
-            --accent: #E2F0CB; /* Verde pastel */
-            --text: #5A5A5A;
-            --white: #FFFFFF;
-            --border: #E0E0E0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .app-container {
-            width: 100%;
-            max-width: 450px;
-            background: var(--white);
-            border-radius: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            overflow: hidden;
-            border: 1px solid #EEE;
-        }
-
-        .header {
-            background: var(--secondary);
-            padding: 25px 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .btn-back {
-            position: absolute;
-            left: 20px;
-            top: 25px;
-            text-decoration: none;
-            color: var(--text);
-            font-size: 14px;
-            font-weight: bold;
-            background: rgba(255,255,255,0.5);
-            padding: 5px 12px;
-            border-radius: 10px;
-        }
-
-        .header h2 { margin: 5px 0 0 0; font-size: 18px; }
-        .header p { margin: 0; font-size: 12px; opacity: 0.8; }
-
-        .content { padding: 25px; }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .full-width { grid-column: span 2; }
-
-        .form-group { margin-bottom: 15px; }
-
-        label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #777;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: #FAFAFA;
-            font-size: 14px;
-            box-sizing: border-box;
-            outline: none;
-            transition: border 0.3s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary);
-            background: #FFF;
-        }
-
-        textarea { resize: none; }
-
-        .footer-actions {
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 15px;
-            border: none;
-            border-radius: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .btn-ghost { background: #F0F0F0; color: var(--text); }
-        .btn-submit { background: var(--primary); color: white; }
-
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-
-        /* Estilo para el estado seleccionado en el wireframe */
-        .status-select { background: #EAF1F5; border-left: 4px solid var(--primary); }
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF9F3; padding: 40px; margin: 0; }
+        .box { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full { grid-column: span 2; }
+        label { font-weight: bold; color: #8D6E63; font-size: 14px; }
+        input, select, textarea { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #F0F0F0; box-sizing: border-box; margin-top: 5px; }
+        .btn { width: 100%; padding: 20px; background: #FFB38E; border: none; color: white; font-weight: bold; border-radius: 15px; cursor: pointer; margin-top: 20px; }
+        .btn:hover { background: #E67E22; }
     </style>
 </head>
 <body>
-
-    <div class="app-container">
-        <div class="header">
-            <a href="index.html" class="btn-back">⬅ Regresar</a>
-            <p>Sistema de Inventario</p>
-            <h2>Registro de Fallas</h2>
-        </div>
-
-        <div class="content">
-            <form action="#" onsubmit="alert('Folio registrado con éxito'); return false;">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Reportado por:</label>
-                        <input type="text" placeholder="Nombre">
-                    </div>
-                    <div class="form-group">
-                        <label>Número de serie:</label>
-                        <input type="text" placeholder="Ej. 143">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Motivo:</label>
-                        <input type="text" placeholder="Ej. Pantalla negra">
-                    </div>
-                    <div class="form-group">
-                        <label>Laboratorio:</label>
-                        <select>
-                            <option>Laboratorio 1</option>
-                            <option>Laboratorio 2</option>
-                            <option>Laboratorio 3</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label>Tipo de equipo:</label>
-                        <input type="text" placeholder="Ej. Monitor HP">
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label>Descripción de la falla:</label>
-                        <textarea rows="3" placeholder="Detalle el problema aquí..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Estado actual:</label>
-                        <select class="status-select">
-                            <option>Funcional</option>
-                            <option selected>Mantenimiento</option>
-                            <option>Falla crítica</option>
-                            <option>Extravío</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Nivel de urgencia:</label>
-                        <select>
-                            <option>Baja</option>
-                            <option>Media</option>
-                            <option selected>Alta</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="footer-actions">
-                    <button type="button" class="btn btn-ghost" onclick="window.location.href='index.html'">Guardar reporte</button>
-                    <button type="submit" class="btn btn-submit">Guardar</button>
-                </div>
-            </form>
-        </div>
+    <div class="box">
+        <a href="index.html" style="color:#A08070; text-decoration:none">← Volver</a>
+        <h2 style="color:#E67E22">Registrar Falla (Folio)</h2>
+        <form class="grid">
+            <div><label>Reportado por</label><input type="text"></div>
+            <div><label>N. Serie</label><input type="text"></div>
+            <div><label>Motivo</label><input type="text"></div>
+            <div><label>Laboratorio</label><select><option>Lab 1</option><option>Lab 2</option></select></div>
+            <div class="full"><label>Descripción</label><textarea rows="3"></textarea></div>
+            <div><label>Urgencia</label><select><option>Baja</option><option>Media</option><option>Alta</option></select></div>
+            <div><label>Estado</label><select><option>Falla</option><option>Mantenimiento</option></select></div>
+            <button class="btn" type="button" onclick="location.href='index.html'">GUARDAR REPORTE</button>
+        </form>
     </div>
-
 </body>
 </html>
