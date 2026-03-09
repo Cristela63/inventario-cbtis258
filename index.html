@@ -1,14 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario CBTis 258</title>
+    <style>
+        :root {
+            --bg: #FDFCF5; --primary: #AEC6CF; --secondary: #FFD1DC;
+            --accent: #E2F0CB; --text: #5A5A5A; --white: #FFFFFF;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .app-container { width: 100%; max-width: 500px; background: var(--white); border-radius: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #EEE; }
+        .header { background: #F8F9FA; padding: 20px; text-align: center; border-bottom: 2px solid var(--bg); }
+        .user-tag { font-size: 12px; background: var(--secondary); padding: 5px 10px; border-radius: 15px; display: inline-block; margin-bottom: 10px; }
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
+        .btn { padding: 15px; border: none; border-radius: 15px; cursor: pointer; font-weight: bold; transition: 0.3s; text-decoration: none; text-align: center; font-size: 14px; color: var(--text); display: flex; align-items: center; justify-content: center; }
+        .btn-blue { background: var(--primary); }
+        .btn-pink { background: var(--secondary); }
+        .btn-green { background: var(--accent); }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        .search-section { padding: 0 20px; }
+        input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #DDD; margin-bottom: 10px; box-sizing: border-box; }
+        .table-container { padding: 20px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th { background: #F4F4F4; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #F0F0F0; }
+    </style>
 </head>
-
 <body>
+    <div class="app-container">
+        <div class="header">
+            <span class="user-tag">Usuario: Almacén</span>
+            <h2 style="margin:0">CBTis 258</h2>
+            <p style="font-size: 12px; color: #888;">Sistema de Inventario</p>
+        </div>
+        
+        <div class="search-section" style="margin-top:20px;">
+            <input type="text" placeholder="🔍 Buscar equipo...">
+        </div>
 
-<h1>Sistema de Inventario CBTis 258</h1>
+        <div class="menu-grid">
+            <a href="registro_falla.html" class="btn btn-pink">Registrar Folio</a>
+            <a href="nuevo_activo.html" class="btn btn-green">Agregar Equipo</a>
+            <a href="detalle.html" class="btn btn-blue">Detalle Equipo</a>
+            <a href="reporte.html" class="btn btn-blue" style="background:#B39EB5; color:white;">Generar Reporte</a>
+        </div>
 
-<p>Este es el sistema para controlar el inventario del CBTis 258.</p>
-
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Tipo</th><th>Serie</th><th>Estado</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Monitor HP</td><td>143</td><td><b style="color:red">Falla</b></td></tr>
+                    <tr><td>PC Dell</td><td>110</td><td><b style="color:green">Ok</b></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

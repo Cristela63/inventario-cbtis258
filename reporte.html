@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte</title>
+    <style>
+        :root { --bg: #FDFCF5; --primary: #AEC6CF; --secondary: #FFD1DC; --accent: #E2F0CB; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 20px; display: flex; justify-content: center; }
+        .app-container { width: 100%; max-width: 500px; background: white; border-radius: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .header { background: #B39EB5; color: white; padding: 20px; border-radius: 30px 30px 0 0; display: flex; justify-content: space-between; }
+        .content { padding: 20px; }
+        .stat-card { background: #F8F9FA; padding: 15px; border-radius: 15px; margin-bottom: 10px; text-align: center; border-left: 5px solid var(--primary); }
+        .stat-number { font-size: 24px; font-weight: bold; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <a href="index.html" style="text-decoration:none; color:white;"><b>⬅ Volver</b></a>
+            <span>Estadísticas</span>
+        </div>
+        <div class="content">
+            <div class="stat-card">
+                <div style="font-size:12px">Total de Activos</div>
+                <div class="stat-number">120</div>
+            </div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <div class="stat-card" style="border-color: var(--accent);">
+                    <div style="font-size:12px">Operativos</div>
+                    <div class="stat-number">85%</div>
+                </div>
+                <div class="stat-card" style="border-color: var(--secondary);">
+                    <div style="font-size:12px">En Falla</div>
+                    <div class="stat-number">15</div>
+                </div>
+            </div>
+            <h4 style="margin-top:20px;">Historial Reciente</h4>
+            <div style="font-size:11px; color:#777; border: 1px solid #EEE; padding:10px; border-radius:10px;">
+                Serie 43 - Lab 3 - Pendiente<br><hr>
+                Serie 55 - Lab 1 - Reparado
+            </div>
+        </div>
+    </div>
+</body>
+</html>

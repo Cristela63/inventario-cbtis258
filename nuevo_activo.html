@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Activo - CBTis 258</title>
+    <style>
+        :root {
+            --bg: #FDFCF5;
+            --primary: #AEC6CF; 
+            --secondary: #FFD1DC;
+            --accent: #E2F0CB; /* Verde Pastel */
+            --text: #5A5A5A;
+            --white: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--white);
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #EEE;
+        }
+
+        .header {
+            background: var(--accent);
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .btn-back {
+            position: absolute;
+            left: 20px;
+            top: 25px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.6);
+            padding: 6px 12px;
+            border-radius: 10px;
+        }
+
+        .header h2 { margin: 5px 0 0 0; font-size: 18px; color: #4A7A4A; }
+        .header p { margin: 0; font-size: 11px; color: #5A5A5A; }
+
+        .content { padding: 25px; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        .full-width { grid-column: span 2; }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #666;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #F9F9F9;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        /* Estilo para los cuadros de lista abierta del wireframe */
+        select[size] {
+            height: 100px;
+            padding: 5px;
+        }
+
+        input:focus, select:focus {
+            border-color: #A5D6A7;
+            background: #FFF;
+            outline: none;
+        }
+
+        .btn-save-container {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .btn-save {
+            background: var(--white);
+            color: var(--text);
+            border: 2px solid #DDD;
+            padding: 15px 40px;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-save:hover {
+            background: #F0F0F0;
+            border-color: #CCC;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="header">
+            <a href="index.html" class="btn-back">Regresar</a>
+            <p>Responsable: Almacén</p>
+            <h2>Registro de Nuevo Activo</h2>
+        </div>
+
+        <div class="content">
+            <form onsubmit="alert('Equipo registrado con éxito'); window.location.href='index.html'; return false;">
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label>Tipo de equipo:</label>
+                        <select size="5">
+                            <option selected>Monitor</option>
+                            <option>PC / CPU</option>
+                            <option>Teclado</option>
+                            <option>Mouse</option>
+                            <option>Proyector</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ubicación:</label>
+                        <select size="5">
+                            <option>Laboratorio 1</option>
+                            <option selected>Laboratorio 2</option>
+                            <option>Laboratorio 3</option>
+                            <option>Biblioteca</option>
+                            <option>Oficina</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Marca:</label>
+                        <input type="text" placeholder="Ej: HP">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Estado Inicial:</label>
+                        <select>
+                            <option>Funcional</option>
+                            <option>Mantenimiento</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Fecha de Registro:</label>
+                        <input type="date" value="2024-02-14">
+                    </div>
+
+                </div>
+
+                <div class="btn-save-container">
+                    <button type="submit" class="btn-save">
+                        <span>💾</span> Guardar Activo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

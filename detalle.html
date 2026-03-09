@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Equipo - CBTis 258</title>
+    <style>
+        :root {
+            --bg: #FDFCF5;
+            --primary: #AEC6CF; /* Azul Pastel */
+            --secondary: #FFD1DC; /* Rosa Pastel */
+            --accent: #E2F0CB; /* Verde Pastel */
+            --text: #5A5A5A;
+            --white: #FFFFFF;
+            --border: #E0E0E0;
+            --danger: #FFB3A7; /* Rojo Pastel */
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--white);
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #EEE;
+        }
+
+        .header {
+            background: var(--primary);
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .btn-back {
+            position: absolute;
+            left: 20px;
+            top: 25px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.6);
+            padding: 6px 12px;
+            border-radius: 10px;
+        }
+
+        .header h2 { margin: 5px 0 0 0; font-size: 18px; color: #4A5A7A; }
+        .header p { margin: 0; font-size: 11px; color: #5A5A5A; }
+
+        .content { padding: 20px; }
+
+        /* Tarjeta de Información Principal */
+        .info-card {
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #FBFCFF;
+        }
+
+        .info-card legend {
+            padding: 0 10px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #4A5A7A;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .field { margin-bottom: 10px; }
+        .field label { display: block; font-size: 10px; font-weight: bold; color: #888; text-transform: uppercase; }
+        .field span { display: block; font-size: 14px; color: var(--text); padding: 5px 0; border-bottom: 1px solid #EEE; }
+
+        .status-badge {
+            background: var(--danger);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* Tabla de Historial */
+        .history-section h3 { font-size: 14px; margin-bottom: 10px; color: #777; }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+        }
+
+        th { background: #F4F7F9; padding: 10px; text-align: left; color: #666; }
+        td { padding: 10px; border-top: 1px solid #EEE; }
+
+        /* Botones inferiores */
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-outline { border: 1px solid var(--primary); background: transparent; color: var(--text); }
+        .btn-danger { background: var(--danger); color: white; margin-top: 10px; width: 100%; }
+        
+        .btn:hover { opacity: 0.8; transform: translateY(-1px); }
+
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="header">
+            <a href="index.html" class="btn-back">Regresar</a>
+            <p>ID: #143-CBTIS</p>
+            <h2>Detalle del Equipo</h2>
+        </div>
+
+        <div class="content">
+            <fieldset class="info-card">
+                <legend>Información General</legend>
+                <div class="grid-info">
+                    <div class="field"><label>Tipo:</label><span>PC / Monitor</span></div>
+                    <div class="field"><label>Marca/Modelo:</label><span>HP Pavilion</span></div>
+                    <div class="field"><label>Estado:</label><span class="status-badge">FALLA</span></div>
+                    <div class="field"><label>N. Serie:</label><span>143-ABC-258</span></div>
+                    <div class="field" style="grid-column: span 2;"><label>Fecha Registro:</label><span>09 / 02 / 2024</span></div>
+                    <div class="field" style="grid-column: span 2;"><label>Observaciones:</label><span style="border:none; font-style: italic;">Se apaga solo después de 10 min de uso. Posible sobrecalentamiento.</span></div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-outline" onclick="location.href='registro_falla.html'">Registrar Folio</button>
+                    <button class="btn btn-outline" style="border-color: var(--accent); background: var(--accent);">Actualizar Info</button>
+                </div>
+            </fieldset>
+
+            <div class="history-section">
+                <h3>Historial de Movimientos</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Folio</th>
+                                <th>Ubicación</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Lab 3</td>
+                                <td style="color: red;">Falla</td>
+                                <td>11/02/24</td>
+                            </tr>
+                            <tr>
+                                <td>024</td>
+                                <td>Lab 1</td>
+                                <td style="color: green;">Funcional</td>
+                                <td>10/12/23</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button class="btn btn-danger" onclick="confirm('¿Eliminar equipo del sistema?')">🗑️ Eliminar Equipo</button>
+        </div>
+    </div>
+
+</body>
+</html>
