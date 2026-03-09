@@ -2,30 +2,68 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Registrar Folio - CBTis 258</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrar Falla - CBTis 258</title>
 
 <style>
 
-body{
-font-family:'Segoe UI', sans-serif;
-background:#FFF9F3;
-padding:40px;
-margin:0;
+:root{
+--vino:#611232;
+--bg:#F8F9FA;
+--text:#333;
 }
 
-.box{
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--bg);
+margin:0;
+color:var(--text);
+}
+
+/* Barra superior */
+
+.nav{
+background:var(--vino);
+color:white;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+border:1px solid white;
+padding:5px 15px;
+border-radius:20px;
+font-size:12px;
+}
+
+/* Contenedor */
+
+.container{
+padding:30px 5%;
 max-width:900px;
 margin:auto;
-background:white;
-padding:40px;
-border-radius:30px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
+
+/* Tarjeta */
+
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Formulario */
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px;
+margin-top:20px;
 }
 
 .full{
@@ -33,67 +71,86 @@ grid-column:span 2;
 }
 
 label{
-font-weight:bold;
-color:#8D6E63;
 font-size:14px;
-}
-
-input, select, textarea{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:2px solid #F0F0F0;
-box-sizing:border-box;
-margin-top:5px;
-}
-
-.btn{
-width:100%;
-padding:20px;
-background:#FFB38E;
-border:none;
-color:white;
 font-weight:bold;
-border-radius:15px;
-cursor:pointer;
+margin-bottom:5px;
+display:block;
+}
+
+input,select,textarea{
+width:100%;
+padding:10px;
+border:1px solid #DDD;
+border-radius:8px;
+box-sizing:border-box;
+}
+
+/* Botones */
+
+.buttons{
+display:flex;
+gap:15px;
 margin-top:20px;
 }
 
+.btn{
+flex:1;
+padding:12px;
+border-radius:8px;
+border:1px solid var(--vino);
+background:white;
+color:var(--vino);
+font-weight:bold;
+cursor:pointer;
+}
+
 .btn:hover{
-background:#E67E22;
+background:#FDF2F5;
 }
 
-.btn-borrar{
-background:#D7CCC8;
-color:#5D4037;
+.btn-delete{
+border:1px solid #CCC;
+color:#666;
 }
 
-.btn-borrar:hover{
-background:#BCAAA4;
+.btn-delete:hover{
+background:#F5F5F5;
+}
+
+.back{
+text-decoration:none;
+color:var(--vino);
+font-size:14px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="box">
+<div class="nav">
+<a href="login.html">Cerrar sesión</a>
+<div>Usuario: <b>Almacén</b></div>
+</div>
 
-<a href="index.html" style="color:#A08070;text-decoration:none">← Volver</a>
+<div class="container">
 
-<h2 style="color:#E67E22">Registrar Falla (Folio)</h2>
+<h2 style="color:var(--vino)">Registrar Falla (Folio)</h2>
 
-<form class="grid" id="formFalla">
+<div class="card">
+
+<a href="index.html" class="back">← Volver</a>
+
+<form class="grid">
 
 <div>
 <label>Reportado por</label>
-<input type="text">
+<input type="text" placeholder="Nombre">
 </div>
 
 <div>
-<label>N. Serie</label>
-<input type="text">
+<label>Número de Serie</label>
+<input type="text" placeholder="Ej: PC-001">
 </div>
 
 <div>
@@ -138,21 +195,21 @@ background:#BCAAA4;
 </select>
 </div>
 
-<div></div>
+<div class="full buttons">
 
-<div class="full">
-
-<button class="btn" type="button" onclick="location.href='index.html'">
-GUARDAR REPORTE
+<button class="btn" type="submit">
+Guardar Reporte
 </button>
 
-<button class="btn btn-borrar" type="reset">
-BORRAR DATOS
+<button class="btn btn-delete" type="reset">
+Borrar Datos
 </button>
 
 </div>
 
 </form>
+
+</div>
 
 </div>
 
